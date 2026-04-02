@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Correcter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="max-w-5xl mx-auto p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-5xl font-extrabold text-blue-500 mb-2">Code Correcter</h1>
+            <p class="text-gray-400 text-lg">Fix syntax and logic errors across all languages instantly.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Left Side: Input -->
+            <div class="flex flex-col">
+                <label class="mb-2 font-semibold text-blue-300 uppercase tracking-wider text-sm">Broken Code</label>
+                <textarea id="inputCode" class="w-full h-96 p-4 bg-gray-800 border border-gray-700 rounded-xl text-sm font-mono focus:ring-2 focus:ring-blue-500 outline-none shadow-lg" placeholder="Paste your code here..."></textarea>
+            </div>
+
+            <!-- Right Side: Output -->
+            <div class="flex flex-col">
+                <label class="mb-2 font-semibold text-green-300 uppercase tracking-wider text-sm">Corrected Code</label>
+                <textarea id="outputCode" readonly class="w-full h-96 p-4 bg-gray-800 border border-gray-700 rounded-xl text-sm font-mono text-green-400 outline-none shadow-lg" placeholder="Fixed code will appear here..."></textarea>
+            </div>
+        </div>
+
+        <div class="mt-10 flex flex-col items-center">
+            <button onclick="fixCode()" class="bg-blue-600 hover:bg-blue-500 text-white px-12 py-4 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-2xl">
+                ✨ Fix My Code
+            </button>
+            <p class="mt-4 text-xs text-gray-500 italic">Pro tip: Connect an AI API like OpenAI or DeepSeek for real-world fixes.</p>
+        </div>
+    </div>
+
+    <script>
+        async function fixCode() {
+            const input = document.getElementById('inputCode').value;
+            const output = document.getElementById('outputCode');
+            
+            if(!input.trim()) return alert("Please paste some code first!");
+
+            output.value = "Analyzing code and fixing bugs... ⏳";
+
+            // SIMULATION: In a real project, you would use a 'fetch' call here
+            // to send this code to an AI model like GPT-4 or DeepSeek.
+            setTimeout(() => {
+                output.value = "// [AI FIX APPLIED]\\n" + input;
+                alert("Interface ready! To perform actual corrections, you'll need to link an AI API key.");
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
